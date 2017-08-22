@@ -18,7 +18,7 @@
     "axios": "^0.16.2"{{#router}},
     "vue-router": "^2.6.0"{{/router}}{{#store}},
     "vuex": "^2.3.0"{{/store}}{{#mobile}},
-    "fastclick": "^1.0.6"{{/mobile}
+    "fastclick": "^1.0.6"{{/mobile}}
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

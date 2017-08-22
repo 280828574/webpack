@@ -5,7 +5,7 @@
 import Vue from 'vue';
 {{#mobile}}
 import FastClick from 'fastclick';
-{{/mobile}
+{{/mobile}}
 {{#router}}
 import router from '~router';
 {{/router}}
@@ -17,7 +17,7 @@ import App from './App';
 
 {{#mobile}}
 FastClick.attach(document.body);
-{{/mobile}
+{{/mobile}}
 Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
