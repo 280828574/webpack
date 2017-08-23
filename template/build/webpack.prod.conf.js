@@ -16,10 +16,16 @@ var env = {{#if_or unit e2e}}process.env.NODE_ENV === 'testing'
 var webpackConfig = merge(baseWebpackConfig, {
   externals: {
       'vue': 'Vue',
+      {{#router}}
       'vue-router': 'VueRouter',
+      {{/router}}
+      {{#store}}
       'vuex': 'Vuex',
-      'axios': 'axios',
+      {{/store}}
+      {{#mobile}}
       'fastclick': 'FastClick',
+      {{/mobile}}
+      'axios': 'axios'
   },
   module: {
     rules: utils.styleLoaders({

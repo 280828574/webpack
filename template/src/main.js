@@ -22,18 +22,18 @@ Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  {{#router}}
-  router,
-  {{/router}}
-  {{#store}}
-  store,
-  {{/store}}
-  {{#if_eq build "runtime"}}
-  render: h => h(App){{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-  {{/if_eq}}
-  {{#if_eq build "standalone"}}
-  template: '<App/>',
-  components: { App }
-  {{/if_eq}}
+    el: '#app',
+    {{#router}}
+    router,
+    {{/router}}
+    {{#store}}
+    store,
+    {{/store}}
+    {{#if_eq build "runtime"}}
+    render: h => h(App){{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+    {{/if_eq}}
+    {{#if_eq build "standalone"}}
+    template: '<App/>',
+    components: { App }
+    {{/if_eq}}
 });

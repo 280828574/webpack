@@ -1,9 +1,9 @@
 <template>
-	<div class="app">
-		{{#router}}
-    <router-view></router-view>
-    {{/router}}
-	</div>
+    <div class="app">
+        {{#router}}
+        <router-view></router-view>
+        {{/router}}
+    </div>
 </template>
 
 <script>
@@ -12,6 +12,6 @@ export default {};
 
 <style>
 .app {
-  width: 100%;
+    width: 100%;
 }
 </style>
