@@ -1,6 +1,10 @@
 <template>
-    <div class="index-wrapper">
-        it's index!
+    <div class="absolute-fixed-wrapper">
+        <div class="absolute-fixed-scroll-wrapper">
+            <div class="index">
+                it's index!
+            </div>
+        </div>
     </div>
 </template>
 
@@ -10,7 +14,7 @@ export default {};
 
 <style lang="scss">
 @import '../assets/styles/tools/index.scss';
-.index-wrapper {
+.index {
     width: 100%;
 }
 </style>
