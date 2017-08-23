@@ -1,9 +1,9 @@
 const files = require.context('.', false, /\.js$/);
-const routes = [];
+let routes = [];
 
 files.keys().forEach((key) => {
     if (key === './index.js') return;
-    routes.concat(files(key).default);
+    routes = routes.concat(files(key).default);
 });
 
 export default routes;
