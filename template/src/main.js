@@ -6,6 +6,7 @@ import Vue from 'vue';
 {{#mobile}}
 import FastClick from 'fastclick';
 {{/mobile}}
+import api from '~api';
 {{#router}}
 import router from '~router';
 {{/router}}
@@ -18,6 +19,7 @@ import App from './App';
 {{#mobile}}
 FastClick.attach(document.body);
 {{/mobile}}
+Vue.prototype.$api = api;
 Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
