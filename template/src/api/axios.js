@@ -14,8 +14,15 @@ axios.interceptors.request.use((config) => {
     }
     return config;
 }, (error) => {
-    console.log('错误的传参');
-    return Promise.reject(error);
+    if (error) {
+        console.log('axios.interceptors.request', error);
+    }
+    const err = {
+        data: {
+            msg: '错误的传参!'
+        }
+    };
+    return Promise.reject(err);
 });
 // code状态码200判断
 axios.interceptors.response.use((res) => {
@@ -24,6 +31,14 @@ axios.interceptors.response.use((res) => {
     }
     return res;
 }, (error) => {
-    return Promise.reject(error);
+    if (error) {
+        console.log('axios.interceptors.response', error);
+    }
+    const err = {
+        data: {
+            msg: '网络有点慢,换个姿势再来一次!'
+        }
+    };
+    return Promise.reject(err);
 });
 export default axios;

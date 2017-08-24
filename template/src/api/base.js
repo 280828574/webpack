@@ -10,7 +10,9 @@ export const fetch = (conf) => (cb) => {
     return axios(conf).then(res => {
         cb(res.data.data);
     }).catch(err => {
-        console.log(err);
+        if (err.data.msg) {
+            console.log(err.data.msg);
+        }
     });
 };
 
@@ -25,7 +27,9 @@ export const post = (conf) => (cb) => (errCb) => {
     return axios(conf).then(res => {
         cb(res.data.data);
     }).catch(err => {
-        console.log(err);
+        if (err.data.msg) {
+            console.log(err.data.msg);
+        }
         errCb();
     });
 };
