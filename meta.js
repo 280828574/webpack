@@ -28,6 +28,10 @@ module.exports = {
       "type": "confirm",
       "message": "Is it a mobile project?"
     },
+    "fontAwesome": {
+      "type": "confirm",
+      "message": "do you want font-awesome?"
+    },
     "build": {
       "type": "list",
       "message": "Vue build",
