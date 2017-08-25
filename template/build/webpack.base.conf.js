@@ -25,6 +25,7 @@ module.exports = {
       'vue$': 'vue/dist/vue.esm.js',
       {{/if_eq}}
       '@': resolve('src'),                         // 源
+      '~constant': resolve('src/constant'),        // 常量
       '~scripts': resolve('src/scripts'),          // 脚本
       '~api': resolve('src/api'),                  // api
       '~views': resolve('src/views'),              // 页面
