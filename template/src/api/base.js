@@ -8,7 +8,7 @@ import axios from './axios';
  */
 export const fetch = (conf) => (cb) => {
     return axios(conf).then(res => {
-        cb(res.data.data);
+        cb(res.data.data, res.data.msg);
     }).catch(err => {
         if (err.data.msg) {
             console.log(err.data.msg);
@@ -25,11 +25,11 @@ export const fetch = (conf) => (cb) => {
  */
 export const post = (conf) => (cb) => (errCb) => {
     return axios(conf).then(res => {
-        cb(res.data.data);
+        cb(res.data.data, res.data.msg);
     }).catch(err => {
         if (err.data.msg) {
             console.log(err.data.msg);
         }
-        errCb();
+        errCb(err.data.msg);
     });
 };

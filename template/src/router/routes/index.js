@@ -6,4 +6,9 @@ files.keys().forEach((key) => {
     routes = routes.concat(files(key).default);
 });
 
+routes.concat([{
+    path: '*',
+    redirect: '/'
+}]);
+
 export default routes;

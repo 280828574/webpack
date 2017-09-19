@@ -5,9 +5,6 @@ const base = [{
             resolve(require('~views/index'));
         });
     }
-}, {
-    path: '*',
-    redirect: '/'
 }];
 
 export default base;
