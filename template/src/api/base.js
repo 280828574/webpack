@@ -10,8 +10,10 @@ export const fetch = (conf) => (cb) => {
     return axios(conf).then(res => {
         cb(res.data.data, res.data.msg);
     }).catch(err => {
-        if (err.data.msg) {
-            console.log(err.data.msg);
+        if (err.data && err.data.msg) {
+            console.log('fetchError =>', err.data.msg);
+        } else {
+            console.log('fetchError =>', err);
         }
     });
 };
@@ -27,9 +29,12 @@ export const post = (conf) => (cb) => (errCb) => {
     return axios(conf).then(res => {
         cb(res.data.data, res.data.msg);
     }).catch(err => {
-        if (err.data.msg) {
-            console.log(err.data.msg);
+        if (err.data && err.data.msg) {
+            errCb(err.data.msg);
+            console.log('postError =>', err.data.msg);
+        } else {
+            errCb('系统错误！');
+            console.log('postError =>', err);
         }
-        errCb(err.data.msg);
     });
 };

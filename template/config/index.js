@@ -32,7 +32,8 @@ module.exports = {
         target: '/',
         changeOrigin: true,
         secure: false,
-        logLevel: 'debug'
+        logLevel: 'debug',
+        router: {}
       }
     },
     // CSS Sourcemaps off by default because relative paths are "buggy"
