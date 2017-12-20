@@ -29,7 +29,8 @@
     "vue-router": "^3.0.1"{{/router}},
     "axios": "^0.17.1"{{#store}},
     "vuex": "^3.0.1"{{/store}}{{#mobile}},
-    "fastclick": "^1.0.6"{{/mobile}}
+    "fastclick": "^1.0.6"{{/mobile}}{{#locale}},
+    "vue-i18n": "^5.0.3"{{/locale}}
   },
   "devDependencies": {
     {{#lint}}

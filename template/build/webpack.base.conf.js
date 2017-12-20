@@ -39,6 +39,9 @@ module.exports = {
       {{/if_eq}}
       '@': resolve('src'),                         // 源
       '~constant': resolve('src/constant'),        // 常量
+      {{#locale}}
+      '~locale': resolve('src/locale'),            // 多语言
+      {{/locale}}
       '~scripts': resolve('src/scripts'),          // 脚本
       '~api': resolve('src/api'),                  // api
       '~views': resolve('src/views'),              // 页面
@@ -46,8 +49,10 @@ module.exports = {
       '~assets': resolve('src/assets'),            // 资源
       '~images': resolve('src/assets/images'),     // 资源 => 图片
       '~styles': resolve('src/assets/styles'),     // 资源 => 样式
-      '~router': resolve('src/router'),            // vue-router
-      '~store': resolve('src/store/store.js')      // vuex
+      {{#store}}
+      '~store': resolve('src/store/store.js'),     // vuex
+      {{/store}}
+      '~router': resolve('src/router')             // vue-router
     }
   },
   module: {

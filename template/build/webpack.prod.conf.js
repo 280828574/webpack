@@ -27,6 +27,9 @@ const webpackConfig = merge(baseWebpackConfig, {
       {{#mobile}}
       'fastclick': 'FastClick',
       {{/mobile}}
+      {{#locale}}
+      'vue-i18n': 'VueI18n',
+      {{/locale}}
       'axios': 'axios'
   },
   module: {

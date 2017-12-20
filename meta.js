@@ -37,6 +37,10 @@ module.exports = {
       type: 'confirm',
       message: 'Is it a mobile project?'
     },
+    locale: {
+      type: 'confirm',
+      message: 'Is it a multi-language project?'
+    },
     build: {
       type: 'list',
       message: 'Vue build',
@@ -154,7 +158,8 @@ module.exports = {
     'test/unit/setup.js': "unit && runner === 'jest'",
     'test/e2e/**/*': 'e2e',
     'src/router/**/*': 'router',
-    'src/store/**/*': 'store'
+    'src/store/**/*': 'store',
+    'src/locale/**/*': 'locale'
   },
   complete: function(data, { chalk }) {
     const green = chalk.green
