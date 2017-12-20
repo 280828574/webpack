@@ -19,6 +19,7 @@ axios.interceptors.request.use((config) => {
     }
     const err = {
         data: {
+            code: 400,
             msg: '错误的传参!'
         }
     };
@@ -36,6 +37,7 @@ axios.interceptors.response.use((res) => {
     }
     const err = {
         data: {
+            code: 404,
             msg: '网络有点慢,换个姿势再来一次!'
         }
     };

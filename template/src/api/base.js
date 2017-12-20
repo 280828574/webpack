@@ -1,40 +1,56 @@
 import axios from './axios';
 
 /**
- * axios实现fetch
+ * axios实现get
  * @param {*Object} conf axios的config
- * @param {*Function} cb 成功响应处理函数
- * @return {*Promise}
  */
-export const fetch = (conf) => (cb) => {
-    return axios(conf).then(res => {
-        cb(res.data.data, res.data.msg);
+const get = async (url, params) => {
+    return await axios({
+        method: 'get',
+        url: url,
+        params: params
+    }).then(res => {
+        res.data.success = true;
+        return res.data;
     }).catch(err => {
-        if (err.data && err.data.msg) {
-            console.log('fetchError =>', err.data.msg);
+        err.data || (err.data = {});
+        if (err.data.msg) {
+            console.log('getError =>', err.data.msg);
         } else {
-            console.log('fetchError =>', err);
+            console.log('getError =>', err);
+            err.data.msg = '系统错误！';
         }
+        err.data.success = false;
+        return err.data;
     });
 };
 
 /**
  * axios实现post
  * @param {*Object} conf axios的config
- * @param {*Function} cb 成功响应处理函数
- * @param {*Function} errCb 失败响应处理函数
- * @return {*Promise}
  */
-export const post = (conf) => (cb) => (errCb) => {
-    return axios(conf).then(res => {
-        cb(res.data.data, res.data.msg);
+const post = async (url, data) => {
+    return await axios({
+        method: 'post',
+        url: url,
+        data: data
+    }).then(res => {
+        res.data.success = true;
+        return res.data;
     }).catch(err => {
-        if (err.data && err.data.msg) {
-            errCb(err.data.msg);
+        err.data || (err.data = {});
+        if (err.data.msg) {
             console.log('postError =>', err.data.msg);
         } else {
-            errCb('系统错误！');
             console.log('postError =>', err);
+            err.data.msg = '系统错误！';
         }
+        err.data.success = false;
+        return err.data;
     });
+};
+
+export default {
+    get,
+    post
 };
