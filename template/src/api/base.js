@@ -5,7 +5,7 @@ import axios from './axios';
  * @param {*Object} conf axios的config
  */
 const get = async (url, params) => {
-    return await axios({
+    let waitData = await axios({
         method: 'get',
         url: url,
         params: params
@@ -23,6 +23,7 @@ const get = async (url, params) => {
         err.data.success = false;
         return err.data;
     });
+    return waitData;
 };
 
 /**
@@ -30,7 +31,7 @@ const get = async (url, params) => {
  * @param {*Object} conf axios的config
  */
 const post = async (url, data) => {
-    return await axios({
+    let waitData = await axios({
         method: 'post',
         url: url,
         data: data
@@ -48,6 +49,7 @@ const post = async (url, data) => {
         err.data.success = false;
         return err.data;
     });
+    return waitData;
 };
 
 export default {
