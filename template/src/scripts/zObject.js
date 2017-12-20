@@ -52,6 +52,7 @@ const isEmpty = obj => {
 const arrToTree = (list, pid = 0) => {
     let tree = [];
     list.forEach(item => {
+        let tmp = deepClone(item);
         if (Number(item.pid) === Number(pid)) {
             tmp['children'] = arrToTree(list, item.id);
             tree.push(tmp);
@@ -78,9 +79,15 @@ const arrToMap = (list, key) => {
     return map;
 };
 
+// 去除数组空字符
+const arrNoEmpty = (arr) => {
+    return arr.filter(t => t !== undefined && t !== null && t !== '');
+};
+
 export default {
     deepClone,
     isEmpty,
     arrToTree,
-    arrToMap
+    arrToMap,
+    arrNoEmpty
 };
