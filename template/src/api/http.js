@@ -27,7 +27,7 @@ const fetch = (url, options = {}) => {
                 console.log('fetchError =>', err.data.msg);
             } else {
                 console.log('fetchError =>', err);
-                err.data.msg = '系统错误！';
+                err.data.msg = 'SYSTEM ERROR!';
             }
             err.data.success = false;
             return err.data;
