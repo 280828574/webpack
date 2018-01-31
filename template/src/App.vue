@@ -7,6 +7,9 @@
 </template>
 
 <script>
+{{#locale}}
+import Vue from 'vue';
+{{/locale}}
 export default {
     {{#locale}}
     created() {
