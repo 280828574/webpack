@@ -5,7 +5,7 @@
 {{#locale}}
 import '@/locale';
 {{/locale}}
-import '@/styles';
+import '@/assets/styles';
 import Vue from 'vue';
 import api from '@/api';
 import constant from '@/constant';
