@@ -5,10 +5,10 @@ module.exports = {
     "postcss-import": {},
     "postcss-url": {},
     // to edit target browsers: use "browserslist" field in package.json
-    "autoprefixer": {},
+    "autoprefixer": {}{{#mobile}},
     "postcss-px2rem": {
       "baseDpr": 2,
       "remUnit": 37.5
-    }
+    }{{/mobile}}
   }
 }
