@@ -89,6 +89,11 @@ module.exports = {
       type: 'confirm',
       message: 'Install vuex?'
     },
+    prerender: {
+      when: 'isNotTest',
+      type: 'confirm',
+      message: 'Use prerender?'
+    },
     lint: {
       when: 'isNotTest',
       type: 'confirm',
@@ -186,7 +191,8 @@ module.exports = {
     'test/e2e/**/*': 'e2e',
     'src/router/**/*': 'router',
     'src/store/**/*': 'store',
-    'src/locale/**/*': 'locale'
+    'src/locale/**/*': 'locale',
+    'build/prerender.js': 'prerender'
   },
   complete: function(data, { chalk }) {
     const green = chalk.green

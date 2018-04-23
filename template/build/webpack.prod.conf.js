@@ -8,8 +8,13 @@ const baseWebpackConfig = require('./webpack.base.conf')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+{{#prerender}}
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+{{/prerender}}
+
+const PrerenderSPAPlugin = require('prerender-spa-plugin')
+const Renderer = PrerenderSPAPlugin.PuppeteerRenderer
 
 const env = {{#if_or unit e2e}}process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
@@ -41,8 +46,11 @@ const webpackConfig = merge(baseWebpackConfig, {
   },
   devtool: config.build.productionSourceMap ? config.build.devtool : false,
   output: {
-    path: config.build.assetsRoot,
+    path: {{#prerender}}process.env.BUILD_ENV === 'prerender' ? config.build.prerenderAssetsRoot : {{/prerender}}config.build.assetsRoot,
     filename: utils.assetsPath('js/[name].js'),
+    {{#prerender}}
+    publicPath: process.env.BUILD_ENV === 'prerender' ? config.build.prerenderAssetsPublicPath : config.build.assetsPublicPath,
+    {{/prerender}}
     chunkFilename: utils.assetsPath('js/[id].js')
   },
   plugins: [
@@ -132,10 +140,24 @@ const webpackConfig = merge(baseWebpackConfig, {
     new CopyWebpackPlugin([
       {
         from: path.resolve(__dirname, '../static'),
-        to: config.build.assetsSubDirectory,
+        to: {{#prerender}}process.env.BUILD_ENV === 'prerender' ? config.build.prerenderAssetsSubDirectory : {{/prerender}}config.build.assetsSubDirectory,
         ignore: ['.*']
       }
-    ])
+    ]),
+
+    {{#prerender}}
+    new PrerenderSPAPlugin({
+      staticDir: config.build.prerenderAssetsRoot,
+      outputDir: config.build.prerenderAssetsRoot,
+      routes: [ '/education/lecture/8', '/education/lecture' ],
+      renderer: new Renderer({
+        renderAfterTime: 5000
+      }),
+      server : {
+        proxy: config.build.prerenderProxyTable
+      }
+    })
+    {{/prerender}}
   ]
 })
 
