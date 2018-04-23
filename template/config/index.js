@@ -64,8 +64,6 @@ module.exports = {
     {{#prerender}}
     // prerender
     prerenderAssetsRoot: path.resolve(__dirname, '../prerenderd'),
-    prerenderAssetsSubDirectory: '',
-    prerenderAssetsPublicPath: '/',
     prerenderProxyTable: {
       '/api': {
         target: '/',

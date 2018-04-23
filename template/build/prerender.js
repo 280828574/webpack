@@ -6,6 +6,7 @@ process.env.BUILD_ENV = 'prerender'
 
 const ora = require('ora')
 const rm = require('rimraf')
+const path = require('path')
 const chalk = require('chalk')
 const webpack = require('webpack')
 const config = require('../config')
@@ -14,7 +15,7 @@ const webpackConfig = require('./webpack.prod.conf')
 const spinner = ora('building for production...')
 spinner.start()
 
-rm(path.join(config.build.prerenderAssetsRoot, config.build.prerenderAssetsSubDirectory), err => {
+rm(config.build.prerenderAssetsRoot, err => {
   if (err) throw err
   webpack(webpackConfig, (err, stats) => {
     spinner.stop()

@@ -135,7 +135,7 @@ const prodWebpackConfig = {
     new CopyWebpackPlugin([
       {
         from: path.resolve(__dirname, '../static'),
-        to: {{#prerender}}process.env.BUILD_ENV === 'prerender' ? config.build.prerenderAssetsSubDirectory : {{/prerender}}config.build.assetsSubDirectory,
+        to: config.build.assetsSubDirectory,
         ignore: ['.*']
       }
     ])
