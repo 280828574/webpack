@@ -62,7 +62,6 @@ module.exports = {
     assetsPublicPath: 'http://asset.dmcdn.com/app/xxxxx/0.0.1/',
 
     {{#prerender}}
-
     // prerender
     prerenderAssetsRoot: path.resolve(__dirname, '../prerenderd'),
     prerenderAssetsSubDirectory: '',
@@ -77,6 +76,7 @@ module.exports = {
       }
     },
     {{/prerender}}
+
     /**
      * Source Maps
      */

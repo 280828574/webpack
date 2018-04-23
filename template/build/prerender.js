@@ -14,7 +14,7 @@ const webpackConfig = require('./webpack.prod.conf')
 const spinner = ora('building for production...')
 spinner.start()
 
-rm(config.build.prerenderRoot, err => {
+rm(path.join(config.build.prerenderAssetsRoot, config.build.prerenderAssetsSubDirectory), err => {
   if (err) throw err
   webpack(webpackConfig, (err, stats) => {
     spinner.stop()
