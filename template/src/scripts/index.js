@@ -6,4 +6,4 @@ files.keys().forEach((key) => {
     modules[key.replace(/(\.\/|\.js)/g, '')] = files(key).default;
 });
 
-export default modules;
+module.exports = modules;

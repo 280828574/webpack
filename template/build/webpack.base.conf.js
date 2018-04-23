@@ -37,22 +37,7 @@ module.exports = {
       {{#if_eq build "standalone"}}
       'vue$': 'vue/dist/vue.esm.js',
       {{/if_eq}}
-      '@': resolve('src'),                         // 源
-      '~constant': resolve('src/constant'),        // 常量
-      {{#locale}}
-      '~locale': resolve('src/locale'),            // 多语言
-      {{/locale}}
-      '~scripts': resolve('src/scripts'),          // 脚本
-      '~api': resolve('src/api'),                  // api
-      '~views': resolve('src/views'),              // 页面
-      '~components': resolve('src/components'),    // 组件
-      '~assets': resolve('src/assets'),            // 资源
-      '~images': resolve('src/assets/images'),     // 资源 => 图片
-      '~styles': resolve('src/assets/styles'),     // 资源 => 样式
-      {{#store}}
-      '~store': resolve('src/store/store.js'),     // vuex
-      {{/store}}
-      '~router': resolve('src/router')             // vue-router
+      '@': resolve('src')
     }
   },
   module: {

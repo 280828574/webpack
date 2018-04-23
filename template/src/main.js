@@ -3,22 +3,22 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 {{/if_eq}}
 {{#locale}}
-import '~locale';
+import '@/locale';
 {{/locale}}
-import '~styles';
+import '@/styles';
 import Vue from 'vue';
-import api from '~api';
-import constant from '~constant';
+import api from '@/api';
+import constant from '@/constant';
 {{#store}}
-import store from '~store';
+import store from '@/store';
 {{/store}}
 {{#router}}
-import router from '~router';
+import router from '@/router';
 {{/router}}
 {{#mobile}}
 import FastClick from 'fastclick';
 {{/mobile}}
-import App from './App';
+import App from '@/App';
 
 Vue.config.productionTip = false;
 Vue.prototype.$api = api;
