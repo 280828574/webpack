@@ -5,9 +5,6 @@ const webpack = require('webpack')
 const config = require('../config')
 const merge = require('webpack-merge')
 const baseWebpackConfig = require('./webpack.base.conf')
-{{#prerender}}
-const prerenderWebpackConfig = require('./webpack.prerender.conf')
-{{/prerender}}
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
@@ -18,7 +15,7 @@ const env = {{#if_or unit e2e}}process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
   : {{/if_or}}require('../config/prod.env')
 
-const prodWebpackConfig = {
+const webpackConfig = merge(baseWebpackConfig, {
   externals: {
       'vue': 'Vue',
       {{#router}}
@@ -140,9 +137,28 @@ const prodWebpackConfig = {
       }
     ])
   ]
-}
+})
 
-const webpackConfig = merge(baseWebpackConfig, prodWebpackConfig{{#prerender}}, process.env.BUILD_ENV === 'prerender' ? prerenderWebpackConfig : {}{{/prerender}})
+{{#prerender}}
+if (process.env.BUILD_ENV === 'prerender') {
+  const PrerenderSPAPlugin = require('prerender-spa-plugin')
+  const Renderer = PrerenderSPAPlugin.PuppeteerRenderer
+
+  webpackConfig.plugins.push(
+    new PrerenderSPAPlugin({
+      staticDir: config.build.assetsRoot,
+      outputDir: config.build.prerenderAssetsRoot,
+      routes: [ '/', '/about' ],
+      renderer: new Renderer({
+        renderAfterTime: 5000
+      }),
+      server : {
+        proxy: config.build.prerenderProxyTable
+      }
+    })
+  )
+}
+{{/prerender}})
 
 if (config.build.productionGzip) {
   const CompressionWebpackPlugin = require('compression-webpack-plugin')
