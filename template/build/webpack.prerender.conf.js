@@ -18,6 +18,22 @@ const env = {{#if_or unit e2e}}process.env.NODE_ENV === 'testing'
   : {{/if_or}}require('../config/prerender.env')
 
 const webpackConfig = merge(baseWebpackConfig, {
+  externals: {
+      'vue': 'Vue',
+      {{#router}}
+      'vue-router': 'VueRouter',
+      {{/router}}
+      {{#store}}
+      'vuex': 'Vuex',
+      {{/store}}
+      {{#mobile}}
+      'fastclick': 'FastClick',
+      {{/mobile}}
+      {{#locale}}
+      'vue-i18n': 'VueI18n',
+      {{/locale}}
+      'axios': 'axios'
+  },
   module: {
     rules: utils.styleLoaders({
       sourceMap: config.prerender.productionSourceMap,
@@ -69,7 +85,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       filename: {{#if_or unit e2e}}process.env.NODE_ENV === 'testing'
         ? 'index.html'
         : {{/if_or}}config.prerender.index,
-      template: 'index.html',
+      template: 'production.html',
       inject: true,
       minify: {
         removeComments: true,
