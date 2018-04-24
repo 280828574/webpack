@@ -85,10 +85,10 @@ module.exports = {
 
   prerender: {
     // Template for index.html
-    index: path.resolve(__dirname, '../prerenderd/index.html'),
+    index: path.resolve(__dirname, '../dist/index.html'),
 
     // Paths
-    assetsRoot: path.resolve(__dirname, '../prerenderd'),
+    assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: '',
     assetsPublicPath: '/',
     proxyTable: {
