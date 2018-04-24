@@ -192,7 +192,9 @@ module.exports = {
     'src/router/**/*': 'router',
     'src/store/**/*': 'store',
     'src/locale/**/*': 'locale',
-    'build/prerender.js': 'prerender'
+    'build/prerender.js': 'prerender',
+    'build/webpack.prerender.conf.js': 'prerender',
+    'build/prerender.env.js': 'prerender'
   },
   complete: function(data, { chalk }) {
     const green = chalk.green
