@@ -85,7 +85,7 @@ module.exports = {
 
   prerender: {
     // Template for index.html
-    index: path.resolve(__dirname, '../prerender/index.html'),
+    index: path.resolve(__dirname, '../prerenderd/index.html'),
 
     // Paths
     assetsRoot: path.resolve(__dirname, '../prerenderd'),
@@ -99,7 +99,7 @@ module.exports = {
         logLevel: 'debug',
         router: {}
       }
-    }
+    },
 
     /**
      * Source Maps
