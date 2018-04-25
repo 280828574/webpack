@@ -88,7 +88,7 @@ module.exports = {
     index: path.resolve(__dirname, '../dist/index.html'),
 
     // Routes
-    routes: []
+    routes: [],
 
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
