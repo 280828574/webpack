@@ -5,6 +5,9 @@ import Vue from 'vue';
 
 axios.defaults.timeout = 5000;
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
+{{#prerender}}
+// 请把process.env.NODE_ENV === 'generateRoutes'时的baesurl改为接口服务器的域名
+{{/prerender}}
 axios.defaults.baseURL = {{#prerender}}process.env.NODE_ENV === 'generateRoutes' ? 'http://xxx/api/' : {{/prerender}}(process.env.NODE_ENV === 'production' ? './api/' : '/api/');
 
 // POST传参序列化

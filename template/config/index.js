@@ -96,7 +96,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api': {
-        target: '/',
+        target: '/',  // 接口服务器的域名
         changeOrigin: true,
         secure: false,
         logLevel: 'debug',
