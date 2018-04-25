@@ -5,7 +5,7 @@ import Vue from 'vue';
 
 axios.defaults.timeout = 5000;
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
-axios.defaults.baseURL = {{#prerender}}process.env.NODE_ENV === 'prerender' ? 'http://xxx/api/' : {{/prerender}}'/api/';
+axios.defaults.baseURL = process.env.NODE_ENV === 'production' ? './api/' : '/api/';
 
 // POST传参序列化
 axios.interceptors.request.use((config) => {
