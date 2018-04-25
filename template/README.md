@@ -40,7 +40,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 > [/config/index.js](./config/index.js) prerender>proxyTable>target 预渲染时需要配置接口服务器
 
-> [/build/prerender-routes.js](./build/prerender-routes.js)  预渲染路由规则
+> [/build/prerender.routes.js](./build/prerender.routes.js)  预渲染路由规则
 
 > [/src/api/axios.js](./src/api/axios.js) axios.defaults.baseURL 生成路由时需要配置接口服务器地址
 {{/prerender}}

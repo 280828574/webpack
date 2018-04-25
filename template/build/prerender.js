@@ -3,7 +3,7 @@ require('./check-versions')()
 
 process.env.NODE_ENV = 'generateRoutes'
 console.log('===========generate router start===============');
-require('./prerender-routes')().then(routesList => {
+require('./prerender.routes')().then(routesList => {
   console.log(routesList);
   console.log('===========generate router end===============');
   process.env.NODE_ENV = 'prerender'
