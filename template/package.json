@@ -23,7 +23,7 @@
     "lint": "eslint --ext .js,.vue src{{#unit}} test/unit{{/unit}}{{#e2e}} test/e2e/specs{{/e2e}}",
     {{/lint}}
     {{#prerender}}
-    "prerender": "node build/prerender.js",
+    "prerender": "./node_modules/.bin/babel-node build/prerender.js --plugins=transform-strict-mode,transform-es2015-modules-commonjs,transform-es2015-spread,transform-es2015-destructuring,transform-es2015-parameters",
     {{/prerender}}
     "build": "node build/build.js"
   },
@@ -129,6 +129,12 @@
     "portfinder": "^1.0.13",
     {{#prerender}}
     "prerender-spa-plugin": "^3.0.0",
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-es2015-destructuring": "^6.23.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-plugin-transform-es2015-parameters": "^6.24.1",
+    "babel-plugin-transform-es2015-spread": "^6.22.0",
+    "babel-plugin-transform-strict-mode": "^6.24.1",
     {{/prerender}}
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.9.1",

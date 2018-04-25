@@ -144,7 +144,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     new PrerenderSPAPlugin({
       staticDir: config.prerender.assetsRoot,
       outputDir: config.prerender.assetsRoot,
-      routes: [ '/', '/about' ],
+      routes: config.prerender.routes,
       renderer: new Renderer({
         renderAfterTime: 5000
       }),

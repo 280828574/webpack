@@ -193,6 +193,7 @@ module.exports = {
     'src/store/**/*': 'store',
     'src/locale/**/*': 'locale',
     'build/prerender.js': 'prerender',
+    'build/prerender.routes.js': 'prerender',
     'build/webpack.prerender.conf.js': 'prerender',
     'build/prerender.env.js': 'prerender'
   },
