@@ -195,7 +195,7 @@ module.exports = {
     'build/prerender.js': 'prerender',
     'build/prerender.routes.js': 'prerender',
     'build/webpack.prerender.conf.js': 'prerender',
-    'build/prerender.env.js': 'prerender'
+    'config/prerender.env.js': 'prerender'
   },
   complete: function(data, { chalk }) {
     const green = chalk.green
