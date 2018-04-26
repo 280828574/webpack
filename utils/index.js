@@ -27,7 +27,7 @@ exports.sortDependencies = function sortDependencies(data) {
  */
 exports.installDependencies = function installDependencies(
   cwd,
-  executable = 'cnpm',
+  executable = 'npm',
   color
 ) {
   console.log(`\n\n# ${color('Installing project dependencies ...')}`)
