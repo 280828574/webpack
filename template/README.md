@@ -60,6 +60,7 @@
 ```
 
 > 注意：为加快资源加载，所以将不同的资源放在了不同的cdn上，比如说打包完毕的资源放在公司自己的cdn上，一部分库文件放在了bootcdn上，所以，新建一个工程的时候注意一下本地开发时用到的库文件的版本是否与bootsdn的版本一致。
+
 > 请查看 /yarn.lock 对比 /production.html
 
 # 开发时设置
@@ -67,9 +68,13 @@
 主要配置文件为：`/build/config/index.js`下的dev对象
 
 主要配置项：
+
     host：设置为0.0.0.0可以允许所有的域名去访问你的webpack-dev-server
+    
     port：webpack-dev-server的端口
+    
     autoOpenBrowser：是否自动打开浏览器，基于host打开
+    
     proxyTable：代理配置
 
 ```sh
@@ -116,6 +121,7 @@ const login = async (username) => {
 ## 资源文件
 
 `/src/assets/`下的资源文件会进入webpack的打包流程，进行各种loader处理
+
 `/static/`下的资源文件不会进入webpack的打包流程，打包完毕后原封不动的转移到dist目录下
 
 
